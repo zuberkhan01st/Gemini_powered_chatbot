@@ -140,6 +140,11 @@
             color: #95a5a6;
             font-size: 0.9em;
         }
+        .helpline_{
+            font-style: unset;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bolder;
+        }
     </style>
 </head>
 <body>
@@ -159,14 +164,14 @@
         {% if current_response %}
         <div class="current-response">
             <h2>Current Response</h2>
-            <p class="Health-Genie"><strong>Health Genie:</strong> {{ current_response }}</p>
+            <p class="Health-Genie"><strong>Health Genie:</strong> {{ current_response | safe }}</p>
         </div>
         {% endif %}
 
         <div class="chat-history">
             <h2>Chat History</h2>
             {% for role, text in chat_history %}
-                <p class="{{ role.replace(' ', '-') }}"><strong>{{ role }}:</strong> {{ text }}</p>
+                <p class="{{ role.replace(' ', '-') }}"><strong>{{ role }}:</strong> {{ text | safe }}</p>
             {% endfor %}
         </div>
 
@@ -175,7 +180,7 @@
             <ul>
                 <li><a href="https://www.nami.org/" target="_blank">National Alliance on Mental Illness (NAMI)</a></li>
                 <li><a href="https://www.samhsa.gov/mental-health" target="_blank">MentalHealth.gov</a></li>
-                <li>Crisis Text Line: Text HOME to 741741 (US)</li>
+                <li class="helpline_">104 Medical Helpline is a 24x7 medical advice helpline</li>
             </ul>
         </div>
 

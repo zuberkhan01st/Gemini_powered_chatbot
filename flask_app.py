@@ -39,6 +39,15 @@ def get_gemini_response(question):
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # Secret key for session management
 
+# Function to check if a query is medical-related
+def is_medical_query(question):
+    medical_keywords = [
+        "disease", "symptom", "treatment", "medicine", "therapy",
+        "doctor", "illness", "diagnosis", "health", "wellness",
+        "remedy", "healing", "patient", "condition", "hospital"
+    ]
+    return any(keyword in question.lower() for keyword in medical_keywords)
+
 # Predefined initial chat
 initial_question = (
     "I want you to act as a doctor and come up with creative treatments for illnesses or diseases. "
@@ -67,7 +76,15 @@ def index():
     if request.method == 'POST':
         input_text = request.form.get('input_text')
         if input_text:
-            response_text = get_gemini_response(input_text)
+            # Validate if the input is medical-related
+            if not is_medical_query(input_text):
+                response_text = (
+                    "Sorry, this platform only supports medical-related questions. "
+                    "Please ask about health, diseases, or treatments."
+                )
+            else:
+                response_text = get_gemini_response(input_text)
+            
             session['chat_history'].append(("You", input_text))
             session['chat_history'].append(("Health Genie", response_text))
             current_response = response_text

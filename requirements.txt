@@ -2,3 +2,4 @@ python-dotenv
 google-generativeai
 streamlit
 gunicorn
+Flask

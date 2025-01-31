@@ -1,2 +1,34 @@
+# Ignore virtual environment folder
 venv/
+# Ignore environment variable files
 .env
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore IDE-specific files (e.g., VSCode, PyCharm)
+.vscode/
+.idea/
+
+# Ignore system-specific files
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# Ignore logs
+*.log
+
+# Ignore the package distribution folder
+*.egg-info/
+dist/
+build/
+
+# Ignore dependency directories
+.Pipfile
+.Pipfile.lock

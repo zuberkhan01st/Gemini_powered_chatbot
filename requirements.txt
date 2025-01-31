@@ -11,3 +11,4 @@ langchain-pinecone
 langchain-community
 langchain-google-genai
 langchain-experimental
+ipykernel

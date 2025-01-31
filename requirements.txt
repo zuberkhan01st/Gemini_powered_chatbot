@@ -3,3 +3,11 @@ google-generativeai
 streamlit
 gunicorn
 Flask
+sentence-transformers==2.2.2
+langchain
+pypdf
+pinecone[grpc]
+langchain-pinecone
+langchain-community
+langchain-google-genai
+langchain-experimental
